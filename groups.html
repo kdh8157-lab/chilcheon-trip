@@ -14,7 +14,30 @@
 
   h1 {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+  }
+
+  /* 학년별 색상 규칙 안내 박스 */
+  .grade-info {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .grade-info div {
+    margin-bottom: 6px;
+  }
+
+  .grade-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
   }
 
   .group-box {
@@ -50,13 +73,6 @@
     gap: 6px;
   }
 
-  .grade-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-  }
-
   .back-btn {
     display: block;
     width: 100%;
@@ -75,6 +91,16 @@
 <body>
 
 <h1>📚 성경학교 조편성표</h1>
+
+<!-- 학년별 색상 규칙 안내 -->
+<div class="grade-info">
+  <strong>🎨 학년별 색상 규칙 안내</strong><br><br>
+  <div><span class="grade-dot" style="background:#f1c40f;"></span> 유치부 (세)</div>
+  <div><span class="grade-dot" style="background:#2ecc71;"></span> 1~2학년</div>
+  <div><span class="grade-dot" style="background:#3498db;"></span> 3~4학년</div>
+  <div><span class="grade-dot" style="background:#9b59b6;"></span> 5~6학년</div>
+  <div><span class="grade-dot" style="background:#e74c3c;"></span> 중학생</div>
+</div>
 
 <div id="groups"></div>
 
