@@ -17,8 +17,8 @@
     margin-bottom: 15px;
   }
 
-  /* 학년별 색상 규칙 안내 박스 */
-  .grade-info {
+  /* 안내 박스 */
+  .info-box {
     background: #ffffff;
     padding: 15px;
     border-radius: 12px;
@@ -28,11 +28,11 @@
     line-height: 1.7;
   }
 
-  .grade-info div {
+  .info-box div {
     margin-bottom: 6px;
   }
 
-  .grade-dot {
+  .dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -53,6 +53,18 @@
     color: white;
     font-size: 1.1rem;
     font-weight: 700;
+  }
+
+  .leader-list {
+    margin-bottom: 12px;
+    padding-left: 5px;
+  }
+
+  .leader-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
   }
 
   .group-content {
@@ -92,14 +104,12 @@
 
 <h1>📚 성경학교 조편성표</h1>
 
-<!-- 학년별 색상 규칙 안내 -->
-<div class="grade-info">
-  <strong>🎨 이름앞 색상 안내</strong><br><br>
-  <div><span class="grade-dot" style="background:#f1c40f;"></span> 유치부</div>
-  <div><span class="grade-dot" style="background:#2ecc71;"></span> 1~2학년</div>
-  <div><span class="grade-dot" style="background:#3498db;"></span> 3~4학년</div>
-  <div><span class="grade-dot" style="background:#9b59b6;"></span> 5~6학년</div>
-  <div><span class="grade-dot" style="background:#e74c3c;"></span> 중학생</div>
+<!-- 요일별 색상 규칙 안내 -->
+<div class="info-box">
+  <strong>📅 요일별 색상 규칙</strong><br><br>
+  <div><span class="dot" style="background:#3498db;"></span> 토요일만 오는 친구</div>
+  <div><span class="dot" style="background:#2ecc71;"></span> 금요일만 오는 친구</div>
+  <div><span class="dot" style="background:#bdc3c7;"></span> 금·토 모두 오는 친구</div>
 </div>
 
 <div id="groups"></div>
@@ -108,143 +118,192 @@
 
 <script>
   const groupIcons = ["🐳","🐬","🐢","🐟","🐙","🦀","🐠","🐡","🦑","🐋","🌊"];
+
+  /* 1~7조 기존 색상, 8~11조 파란색 */
   const groupColors = [
     "#6c5ce7", "#0984e3", "#00b894", "#fdcb6e", "#e17055",
-    "#d63031", "#00cec9", "#30336b", "#e84393", "#6ab04c", "#636e72"
+    "#d63031", "#00cec9",
+    "#3498db", "#3498db", "#3498db", "#3498db"
   ];
 
-  function gradeColor(grade) {
-    if (grade.includes("세")) return "#f1c40f";      // 유치부
-    if (grade.includes("1학년") || grade.includes("2학년")) return "#2ecc71";
-    if (grade.includes("3학년") || grade.includes("4학년")) return "#3498db";
-    if (grade.includes("5학년") || grade.includes("6학년")) return "#9b59b6";
-    if (grade.includes("중")) return "#e74c3c";       // 중학생
-    return "#7f8c8d"; // 기타
+  function dayColor(day) {
+    if (day === "sat") return "#3498db";   // 파란색
+    if (day === "fri") return "#2ecc71";   // 초록색
+    return "#bdc3c7";                      // 기본
   }
 
   const groupsData = [
     {
       group: "1조",
-      leader: "정하은, 김정태",
+      leader: [
+        ["정하은","both"],
+        ["김정태","both"]
+      ],
       students: [
-        ["차영광","5학년","대곡"],
-        ["오하람","5학년","구덕"],
-        ["김리주","3학년","구덕"],
-        ["이찬빈","2학년","구덕"],
-        ["김보경","4세","유치부"]
+        ["차영광","5학년","대곡","both"],
+        ["오하람","5학년","구덕","both"],
+        ["김리주","3학년","구덕","both"],
+        ["이찬빈","2학년","구덕","sat"],
+        ["김보경","4세","유치부","both"]
       ]
     },
+
     {
       group: "2조",
-      leader: "김다은, 주익한, 박지은",
+      leader: [
+        ["김다은","both"],
+        ["주익한","sat"],
+        ["박지은","sat"]
+      ],
       students: [
-        ["신예정","4학년","대곡"],
-        ["김도연","4학년","구덕"],
-        ["김보민","3학년","구덕"],
-        ["오현우","7세","구덕"],
-        ["허아현","2세","유치부"]
+        ["신예정","4학년","대곡","both"],
+        ["김도연","4학년","구덕","both"],
+        ["김보민","3학년","구덕","both"],
+        ["오현우","7세","구덕","fri"],
+        ["허아현","2세","유치부","sat"]
       ]
     },
+
     {
       group: "3조",
-      leader: "이주현, 이홍은, 정은경",
+      leader: [
+        ["이주현","both"],
+        ["이홍은","both"],
+        ["정은경","sat"]
+      ],
       students: [
-        ["김시온","6학년","대곡"],
-        ["오하율","4학년","구덕"],
-        ["오민하","3학년","구덕"],
-        ["이나은","1학년","구덕"],
-        ["최혜온","6세","유치부"]
+        ["김시온","6학년","대곡","both"],
+        ["오하율","4학년","구덕","both"],
+        ["오민하","3학년","구덕","fri"],
+        ["이나은","1학년","구덕","both"],
+        ["최혜온","6세","유치부","sat"]
       ]
     },
+
     {
       group: "4조",
-      leader: "이수연, 이황인",
+      leader: [
+        ["이수연","both"],
+        ["이황인","both"]
+      ],
       students: [
-        ["김도윤","4학년","대곡"],
-        ["김늘찬","2학년","구덕"],
-        ["이가빈","1학년","구덕"],
-        ["김선우","4학년","구덕"],
-        ["모준서","5세","유치부"]
+        ["김도윤","4학년","대곡","sat"],
+        ["김늘찬","2학년","구덕","both"],
+        ["이가빈","1학년","구덕","both"],
+        ["김선우","4학년","구덕","sat"],
+        ["모준서","5세","유치부","sat"]
       ]
     },
+
     {
       group: "5조",
-      leader: "김재현a, 김은진",
+      leader: [
+        ["김재현a","both"],
+        ["김은진","both"]
+      ],
       students: [
-        ["김도현","2학년","대곡"],
-        ["이예빈","4학년","구덕"],
-        ["양다은","2학년","구덕"],
-        ["진세준","7세","유치부"]
+        ["김도현","2학년","대곡","sat"],
+        ["이예빈","4학년","구덕","both"],
+        ["양다은","2학년","구덕","both"],
+        ["진세준","7세","유치부","both"]
       ]
     },
+
     {
       group: "6조",
-      leader: "박근혜, 김수겸, 김유진",
+      leader: [
+        ["박근혜","both"],
+        ["김수겸","both"],
+        ["김유진","sat"]
+      ],
       students: [
-        ["김열매","5학년","구덕"],
-        ["송예담","3학년","구덕"],
-        ["진하은","3세","유치부"],
-        ["김유라","1학년","유치부"]
+        ["김열매","5학년","구덕","both"],
+        ["송예담","3학년","구덕","both"],
+        ["진하은","3세","유치부","both"],
+        ["김유라","1학년","유치부","both"]
       ]
     },
+
     {
       group: "7조",
-      leader: "김재현, 정하용",
+      leader: [
+        ["김재현","both"],
+        ["정하용","sat"]
+      ],
       students: [
-        ["김도엽","1학년","대곡"],
-        ["김도희","6세","대곡"],
-        ["김지유","중2","구덕"],
-        ["오하준","6학년","구덕"],
-        ["이조이","5세","유치부"],
-        ["이하율","5학년","구덕"]
+        ["김도엽","1학년","대곡","sat"],
+        ["김도희","6세","대곡","sat"],
+        ["김지유","중2","구덕","sat"],
+        ["오하준","6학년","구덕","both"],
+        ["이조이","5세","유치부","both"],
+        ["이하율","5학년","구덕","sat"]
       ]
     },
+
     {
       group: "8조",
-      leader: "박은주, 권주영",
+      leader: [
+        ["박은주","sat"],
+        ["권주영","sat"]
+      ],
       students: [
-        ["신예준","중1","대곡"],
-        ["김아셀","중1","대곡"],
-        ["김민준","6학년","구덕"],
-        ["서지우","2학년","구덕"],
-        ["탁이현","7세","유치부"],
-        ["강윤재","6세","유치부"]
+        ["신예준","중1","대곡","sat"],
+        ["김아셀","중1","대곡","sat"],
+        ["김민준","6학년","구덕","sat"],
+        ["서지우","2학년","구덕","sat"],
+        ["탁이현","7세","유치부","sat"],
+        ["강윤재","6세","유치부","sat"]
       ]
     },
+
     {
       group: "9조",
-      leader: "강태호, 허종웅, 신민경, 최유정",
+      leader: [
+        ["강태호","sat"],
+        ["허종웅","sat"],
+        ["신민경","sat"],
+        ["최유정","sat"]
+      ],
       students: [
-        ["신범준","중1","대곡"],
-        ["김하운","6학년","구덕"],
-        ["김연주","4학년","구덕"],
-        ["김라희","4세","유치부"],
-        ["최혜준","3세","유치부"]
+        ["신범준","중1","대곡","sat"],
+        ["김하운","6학년","구덕","sat"],
+        ["김연주","4학년","구덕","sat"],
+        ["김라희","4세","유치부","sat"],
+        ["최혜준","3세","유치부","sat"]
       ]
     },
+
     {
       group: "10조",
-      leader: "최용임, 한유정, 정여원",
+      leader: [
+        ["최용임","sat"],
+        ["한유정","sat"],
+        ["정여원","sat"]
+      ],
       students: [
-        ["권보현","중1","대곡"],
-        ["박선우","5학년","구덕"],
-        ["김효주","중1","구덕"],
-        ["이동호","1학년","구덕"],
-        ["장하늘","6세","유치부"],
-        ["탁예라","3세","유치부"]
+        ["권보현","중1","대곡","sat"],
+        ["박선우","6학년","구덕","sat"],
+        ["김효주","중1","구덕","sat"],
+        ["이동호","1학년","구덕","sat"],
+        ["장하늘","6세","유치부","sat"],
+        ["탁예라","3세","유치부","sat"]
       ]
     },
+
     {
       group: "11조",
-      leader: "강유진, 박하늬",
+      leader: [
+        ["강유진","sat"],
+        ["박하늬","sat"]
+      ],
       students: [
-        ["차기쁨","중3","대곡"],
-        ["권소양","중3","대곡"],
-        ["박진우","5학년","구덕"],
-        ["권민찬","3학년","구덕"],
-        ["허재준","1학년","구덕"],
-        ["김율","5세","유치부"],
-        ["장가을","4세","유치부"]
+        ["차기쁨","중3","대곡","sat"],
+        ["권소양","중3","대곡","sat"],
+        ["박진우","6학년","구덕","sat"],
+        ["권민찬","3학년","구덕","sat"],
+        ["허재준","1학년","구덕","sat"],
+        ["김율","5세","유치부","sat"],
+        ["장가을","4세","유치부","sat"]
       ]
     }
   ];
@@ -258,11 +317,34 @@
     const header = document.createElement("div");
     header.className = "group-header";
     header.style.background = groupColors[i];
-    header.textContent = `${groupIcons[i]} ${g.group} — 조장: ${g.leader}`;
+    header.textContent = `${groupIcons[i]} ${g.group}`;
 
     const content = document.createElement("div");
     content.className = "group-content";
 
+    /* 조장 표시 */
+    const leaderList = document.createElement("div");
+    leaderList.className = "leader-list";
+
+    g.leader.forEach(l => {
+      const leaderItem = document.createElement("div");
+      leaderItem.className = "leader-item";
+
+      const dayDot = document.createElement("span");
+      dayDot.className = "dot";
+      dayDot.style.background = dayColor(l[1]);
+
+      const name = document.createElement("span");
+      name.textContent = `${l[0]} (조장)`;
+
+      leaderItem.appendChild(dayDot);
+      leaderItem.appendChild(name);
+      leaderList.appendChild(leaderItem);
+    });
+
+    content.appendChild(leaderList);
+
+    /* 학생 표시 */
     const list = document.createElement("div");
     list.className = "student-list";
 
@@ -270,14 +352,14 @@
       const item = document.createElement("div");
       item.className = "student-item";
 
-      const dot = document.createElement("span");
-      dot.className = "grade-dot";
-      dot.style.background = gradeColor(s[1]);
+      const dayDot = document.createElement("span");
+      dayDot.className = "dot";
+      dayDot.style.background = dayColor(s[3]);
 
       const text = document.createElement("span");
       text.textContent = `${s[0]} (${s[1]}, ${s[2]})`;
 
-      item.appendChild(dot);
+      item.appendChild(dayDot);
       item.appendChild(text);
       list.appendChild(item);
     });
