@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026 칠천도 비전트립 사역 명단</title>
+
+<style>
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 12px;
+    background: #f7f7f7;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  #searchBox {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .filter-buttons button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #ddd;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .filter-buttons button.active {
+    background: #6c5ce7;
+    color: white;
+  }
+
+  .day-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  }
+
+  .day-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .toggle {
+    color: #007aff;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* 참석자 요약 박스 */
+  .attend-summary {
+    background: #eef1ff;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* 참석자 명단 박스 */
+  .attend-box {
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .attend-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  /* 기존 카테고리 박스 */
+  .category-box {
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 12px;
+  }
+
+  .cat-oper { background: #A8B5E0; }
+  .cat-bible { background: #F9E79F; }
+  .cat-local { background: #D7BDE2; }
+
+  .team-box {
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .team-oper-sub { background: #D6DBF5; }
+  .team-bible-proc { background: #AED6F1; }
+  .team-bible-mentor { background: #A9DFBF; }
+  .team-bible-snack { background: #FAD7A0; }
+  .team-local-wall { background: #C39BD3; }
+  .team-local-hair { background: #F5B7B1; }
+
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .team-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>2026 칠천도 비전트립 사역 명단</h1>
+
+<input id="searchBox" type="text" placeholder="이름 검색…" />
+
+<div class="filter-buttons">
+  <button id="filter-all" class="active" onclick="filterCategory('all')">전체</button>
+  <button id="filter-oper" onclick="filterCategory('oper')">운영팀</button>
+  <button id="filter-bible" onclick="filterCategory('bible')">성경학교</button>
+  <button id="filter-local" onclick="filterCategory('local')">지역봉사</button>
+</div>
+<!-- ========================= -->
+<!-- 8월 21일 -->
+<!-- ========================= -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay('day21','toggle21')">
+    <div>8월 21일 (금)</div>
+    <div id="toggle21" class="toggle">펼치기 ▼</div>
+  </div>
+
+  <div id="day21" class="hidden">
+
+    <!-- 참석자 요약 -->
+    <div class="attend-summary">
+      <strong>참석자 요약</strong><br>
+      총원: 76명<br>
+      성인: 56명<br>
+      어린이: 20명
+    </div>
+
+    <!-- 성인 참석자 -->
+    <div class="attend-box">
+      <div class="attend-header" onclick="toggleAttend('adult21','adultToggle21')">
+        성인 참석자 (56명)
+        <span id="adultToggle21">펼치기 ▼</span>
+      </div>
+      <div id="adult21" class="hidden">
+        이소희, 구 원, 강찬미, 고신명, 김건욱, 김다은, 김대현, 김수겸, 김수영, 김용해,
+        김은진, 김은혜, 김정은, 김진훈, 김정태, 김재현, 김재현a, 김주형, 김창규, 김필신,
+        김효선, 남은지, 노건희, 노영란, 모상규, 박경덕, 박근혜, 박선화, 박희덕, 신선한,
+        신향래, 심성섭, 오한나, 유은실, 유종숙, 윤지수, 이보배, 이수연, 이슬기, 이신화,
+        이은혜, 이정엽, 이주현, 이재원, 이하은, 이황인, 임승진, 정하은, 최철준, 탁경배,
+        한사랑, 한학수, 허명자, 허자윤, 홍달님, 황서현
+      </div>
+    </div>
+
+    <!-- 어린이 참석자 -->
+    <div class="attend-box">
+      <div class="attend-header" onclick="toggleAttend('child21','childToggle21')">
+        어린이 참석자 (20명)
+        <span id="childToggle21">펼치기 ▼</span>
+      </div>
+      <div id="child21" class="hidden">
+        김리주(10), 김열매(12), 김늘찬(9), 김도연(11), 김유라(8), 오민하(10),
+        오하람(12), 오현우(7), 이나은(8), 이예빈(11), 이가빈(8), 김보경(4),
+        김보민(10), 오하준(13), 오하율(11), 이조이(5), 양다은(9), 송예담(11),
+        진세준(7), 진하은(3)
+      </div>
+    </div>
+
+    <!-- 운영팀 -->
+    <div class="category-box cat-oper oper">
+      <div class="category-header" onclick="toggleCategory('oper21','operToggle21')">
+        운영팀
+        <span id="operToggle21">펼치기 ▼</span>
+      </div>
+
+      <div id="oper21" class="hidden">
+        <div class="team-box team-oper-sub">
+          <div class="team-title">팀장</div>
+          <div>김대현</div>
+        </div>
+
+        <div class="team-box team-oper-sub">
+          <div class="team-title">운영정리 담당자</div>
+          <div>김건욱, 이신화</div>
+        </div>
+
+        <div class="team-box team-oper-sub">
+          <div class="team-title">정리·분리수거 담당자</div>
+          <div>모상규</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 성경학교 -->
+    <div class="category-box cat-bible bible">
+      <div class="category-header" onclick="toggleCategory('bible21','bibleToggle21')">
+        성경학교
+        <span id="bibleToggle21">펼치기 ▼</span>
+      </div>
+
+      <div id="bible21" class="hidden">
+        <div class="team-box team-bible-proc">
+          <div class="team-title">담당 사역자</div>
+          <div>구 원</div>
+        </div>
+
+        <div class="team-box team-bible-proc">
+          <div class="team-title">총괄 담당자</div>
+          <div>홍달님, 김주형</div>
+        </div>
+
+        <div class="team-box team-bible-proc">
+          <div class="team-title">🎤 진행팀</div>
+          <div>김효선, 김진훈, 심성섭, 이보배, 이은혜, 허자윤</div>
+        </div>
+
+        <div class="team-box team-bible-mentor">
+          <div class="team-title">👨‍🏫 멘토팀</div>
+          <div>
+            김다은, 김수겸, 김은진, 김정태, 김재현, 김재현a,
+            박근혜, 이수연, 이주현, 이황인, 정하은, 김창규, 한학수
+          </div>
+        </div>
+
+        <div class="team-box team-bible-snack">
+          <div class="team-title">🍪 간식팀</div>
+          <div>박희덕, 황서현</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 지역봉사 -->
+    <div class="category-box cat-local local">
+      <div class="category-header" onclick="toggleCategory('local21','localToggle21')">
+        지역봉사
+        <span id="localToggle21">펼치기 ▼</span>
+      </div>
+
+      <div id="local21" class="hidden">
+        <div class="team-box team-local-wall">
+          <div class="team-title">🎨 벽화팀 (팀장: 김정은)</div>
+          <div>
+            강찬미, 고신명, 김필신, 남은지, 박경덕, 신선한, 신향래,
+            오한나, 유은실, 유종숙, 윤지수, 이슬기, 이정엽, 이하은,
+            임승진, 탁경배, 한사랑
+          </div>
+        </div>
+
+        <div class="team-box team-local-hair">
+          <div class="team-title">💇‍♀️ 이미용팀 (팀장: 노영란)</div>
+          <div>
+            김수영, 김용해, 김은혜, 노건희, 박선화, 이재원, 최철준, 허명자
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ========================= -->
+<!-- 8월 22일 -->
+<!-- ========================= -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay('day22','toggle22')">
+    <div>8월 22일 (토)</div>
+    <div id="toggle22" class="toggle">펼치기 ▼</div>
+  </div>
+
+  <div id="day22" class="hidden">
+
+    <!-- 참석자 요약 -->
+    <div class="attend-summary">
+      <strong>참석자 요약</strong><br>
+      총원: 142명<br>
+      성인: 98명<br>
+      어린이: 44명
+    </div>
+
+    <!-- 성인 참석자 -->
+    <div class="attend-box">
+      <div class="attend-header" onclick="toggleAttend('adult22','adultToggle22')">
+        성인 참석자 (98명)
+        <span id="adultToggle22">펼치기 ▼</span>
+      </div>
+      <div id="adult22" class="hidden">
+        이소희, 구 원, 박종하, 강유진, 강태호, 고요한, 곽동심, 권용미, 권주영,
+        김건욱, 김다은, 김대현, 김명재, 김명화, 김수겸, 김수원, 김유진, 김은진,
+        김승한, 김은실, 김은혜, 김재성, 김재현, 김재현a, 김주형, 김정은, 김정태,
+        김종현, 김지원, 김진훈, 김창규, 김필신, 김학곤, 김효선, 김희은, 남은지,
+        노건희, 노영란, 모상규, 류지숙, 박근혜, 박소연, 박은영, 박은주, 박지은,
+        박한나, 박하늬, 박희덕, 손원숙, 서나미, 서봉관, 성보옥, 신민경, 신선한,
+        심성섭, 오한나, 양정인, 옥유정, 유은실, 유종숙, 유하영, 윤지수, 이보배,
+        이성지, 이수연, 이슬기, 이신화, 이예찬, 이은혜, 이종희, 이정엽, 이주현,
+        이재원, 이하은, 이홍은, 이황인, 임서영, 임승진, 장호경, 정여원, 정은경,
+        정태임, 정하은, 정하용, 주익한, 최용임, 최유정, 최충만, 탁경배, 탁명준,
+        한유정, 허자윤, 허종웅, 홍달님, 황서현, 한학수, 황윤경, 황혜영
+      </div>
+    </div>
+
+    <!-- 어린이 참석자 -->
+    <div class="attend-box">
+      <div class="attend-header" onclick="toggleAttend('child22','childToggle22')">
+        어린이 참석자 (44명)
+        <span id="childToggle22">펼치기 ▼</span>
+      </div>
+      <div id="child22" class="hidden">
+        강윤재(6), 김효주(14), 김리주(10), 김열매(12), 김늘찬(9), 김도연(11),
+        김유라(8), 김라희(4), 이나은(8), 모준서(5), 허재준(8), 허아현(2),
+        장하늘(6), 장가을(4), 최혜온(6), 최혜준(3), 이예빈(11), 이가빈(8),
+        이동호(8), 탁이현(7), 탁예라(3), 진세준(7), 진하은(3), 김지유(15),
+        김선우(11), 김하운(13), 김보민(10), 김보경(4), 김연주(11), 이찬빈(9),
+        오하준(13), 오하율(11), 권민찬(10), 이조이(5), 양다은(9), 서지우(9),
+        서민준(13), 김민준(13), 송예담(10), 김율(5), 박선우(12), 박진우(12),
+        오하람(12), 이하율(12)
+      </div>
+    </div>
+
+    <!-- 운영팀 -->
+    <div class="category-box cat-oper oper">
+      <div class="category-header" onclick="toggleCategory('oper22','operToggle22')">
+        운영팀
+        <span id="operToggle22">펼치기 ▼</span>
+      </div>
+
+      <div id="oper22" class="hidden">
+        <div class="team-box team-oper-sub">
+          <div class="team-title">팀장</div>
+          <div>김대현</div>
+        </div>
+
+        <div class="team-box team-oper-sub">
+          <div class="team-title">운영정리 담당자</div>
+          <div>김건욱, 탁명준</div>
+        </div>
+
+        <div class="team-box team-oper-sub">
+          <div class="team-title">정리·분리수거 담당자</div>
+          <div>김재성, 김종현</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 성경학교 -->
+    <div class="category-box cat-bible bible">
+      <div class="category-header" onclick="toggleCategory('bible22','bibleToggle22')">
+        성경학교
+        <span id="bibleToggle22">펼치기 ▼</span>
+      </div>
+
+      <div id="bible22" class="hidden">
+        <div class="team-box team-bible-proc">
+          <div class="team-title">담당 사역자</div>
+          <div>구 원</div>
+        </div>
+
+        <div class="team-box team-bible-proc">
+          <div class="team-title">총괄 담당자</div>
+          <div>홍달님, 김주형</div>
+        </div>
+
+        <div class="team-box team-bible-proc">
+          <div class="team-title">🎤 진행팀</div>
+          <div>김효선, 박하늬, 이은혜, 장호경, 주익한, 허자윤</div>
+        </div>
+
+        <div class="team-box team-bible-mentor">
+          <div class="team-title">👨‍🏫 멘토팀</div>
+          <div>
+            김다은, 김유진, 김은진, 김정태, 김재현, 박근혜, 이수연, 이주현,
+            이황인, 정하은, 최유정, 강유진, 강태호, 권주영, 김수겸, 김은혜,
+            김창규, 박은주, 박지은, 신민경, 심성섭, 이보배, 이홍은, 임서영,
+            정여원, 정은경, 정하용, 최용임, 허종웅, 한유정, 한학수, 황윤경
+          </div>
+        </div>
+
+        <div class="team-box team-bible-snack">
+          <div class="team-title">🍪 간식팀</div>
+          <div>권용미, 노건희, 박희덕, 황서현</div>
+        </div>
+      </div>
+    </div>
+    <!-- 지역봉사 -->
+    <div class="category-box cat-local local">
+      <div class="category-header" onclick="toggleCategory('local22','localToggle22')">
+        지역봉사
+        <span id="localToggle22">펼치기 ▼</span>
+      </div>
+
+      <div id="local22" class="hidden">
+
+        <div class="team-box team-local-wall">
+          <div class="team-title">🎨 벽화팀 (40명, 팀장: 김정은)</div>
+          <div>
+            고요한, 곽동심, 김명화, 김명재, 김승한, 김은실, 김지원, 김필신,
+            김학곤, 김희은, 남은지, 모상규, 박소연, 박은영, 박한나, 서나미,
+            서봉관, 성보옥, 손원숙, 신선한, 오한나, 옥유정, 유은실, 유종숙,
+            유하영, 윤지수, 이성지, 이슬기, 이예찬, 이정엽, 이재원, 이종희,
+            이하은, 임승진, 정태임, 탁경배, 황혜영
+          </div>
+        </div>
+
+        <div class="team-box team-local-hair">
+          <div class="team-title">💇‍♀️ 이미용팀 (팀장: 노영란)</div>
+          <div>
+            김수영, 김용해, 김은혜, 노건희, 박선화, 이재원, 최철준, 허명자
+          </div>
+        </div>
+
+        <div class="team-box team-oper-sub">
+          <div class="team-title">정리·분리수거</div>
+          <div>김재성, 김종현</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div> <!-- day22 내용 끝 -->
+</div> <!-- day22 카드 끝 -->
+<!-- ========================= -->
+<!-- 8월 23일 -->
+<!-- ========================= -->
+<div class="day-card">
+  <div class="day-header" onclick="toggleDay('day23','toggle23')">
+    <div>8월 23일 (주일)</div>
+    <div id="toggle23" class="toggle">펼치기 ▼</div>
+  </div>
+
+  <div id="day23" class="hidden">
+
+    <!-- 참석자 요약 -->
+    <div class="attend-summary">
+      <strong>참석자 요약</strong><br>
+      총원: 70명<br>
+      성인: 45명<br>
+      어린이: 25명
+    </div>
+
+    <!-- 성인 참석자 -->
+    <div class="attend-box">
+      <div class="attend-header" onclick="toggleAttend('adult23','adultToggle23')">
+        성인 참석자 (45명)
+        <span id="adultToggle23">펼치기 ▼</span>
+      </div>
+      <div id="adult23" class="hidden">
+        이소희, 구 원, 강유진, 김건욱, 김대현, 김승한, 김유진, 김용해, 김은혜,
+        김주형, 김재성, 김정은, 김진훈, 남은지, 노영란, 박근혜, 박소연, 박은주,
+        박하늬, 박희덕, 신민경, 옥유정, 유은실, 원득희, 이수연, 이신화, 이은혜,
+        이재원, 이정엽, 이주현, 이황인, 임서영, 임승진, 장호경, 정여원, 정은경,
+        정하은, 정하용, 주익한, 최충만, 탁명준, 한유정, 한학수, 허자윤, 홍달님
+      </div>
+    </div>
+
+    <!-- 어린이 참석자 -->
+    <div class="attend-box">
+      <div class="attend-header" onclick="toggleAttend('child23','childToggle23')">
+        어린이 참석자 (25명)
+        <span id="childToggle23">펼치기 ▼</span>
+      </div>
+      <div id="child23" class="hidden">
+        김효주(14), 김리주(10), 김늘찬(9), 김유라(8), 김라희(4), 김보민(10),
+        김선우(11), 김열매(12), 김지유(15), 이나은(8), 이예빈(11), 이가빈(8),
+        이동호(8), 이찬빈(9), 오하준(13), 오하율(11), 이조이(5), 양다은(9),
+        송예담(10), 장하늘(6), 장가을(4), 최혜온(6), 최혜준(3), 탁이현(7),
+        탁예라(3)
+      </div>
+    </div>
+
+    <!-- 운영팀 -->
+    <div class="category-box cat-oper oper">
+      <div class="category-header" onclick="toggleCategory('oper23','operToggle23')">
+        운영팀
+        <span id="operToggle23">펼치기 ▼</span>
+      </div>
+
+      <div id="oper23" class="hidden">
+        <div class="team-box team-oper-sub">
+          <div class="team-title">팀장</div>
+          <div>김대현</div>
+        </div>
+
+        <div class="team-box team-oper-sub">
+          <div class="team-title">운영정리 담당자</div>
+          <div>김건욱, 이신화</div>
+        </div>
+
+        <div class="team-box team-oper-sub">
+          <div class="team-title">정리·분리수거 담당자</div>
+          <div>(주일은 별도 명단 없음)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 성경학교 -->
+    <div class="category-box cat-bible bible">
+      <div class="category-header" onclick="toggleCategory('bible23','bibleToggle23')">
+        성경학교
+        <span id="bibleToggle23">펼치기 ▼</span>
+      </div>
+
+      <div id="bible23" class="hidden">
+        <div class="team-box team-bible-proc">
+          <div class="team-title">담당 사역자</div>
+          <div>구 원</div>
+        </div>
+
+        <div class="team-box team-bible-proc">
+          <div class="team-title">총괄 담당자</div>
+          <div>홍달님, 김주형</div>
+        </div>
+
+        <div class="team-box team-bible-proc">
+          <div class="team-title">🎤 진행팀</div>
+          <div>(주일은 진행 없음)</div>
+        </div>
+
+        <div class="team-box team-bible-mentor">
+          <div class="team-title">👨‍🏫 멘토팀</div>
+          <div>(주일은 멘토 없음)</div>
+        </div>
+
+        <div class="team-box team-bible-snack">
+          <div class="team-title">🍪 간식팀</div>
+          <div>(주일은 간식 없음)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 지역봉사 -->
+    <div class="category-box cat-local local">
+      <div class="category-header" onclick="toggleCategory('local23','localToggle23')">
+        지역봉사
+        <span id="localToggle23">펼치기 ▼</span>
+      </div>
+
+      <div id="local23" class="hidden">
+        <div class="team-box team-local-wall">
+          <div class="team-title">🎨 벽화팀</div>
+          <div>(주일은 벽화 없음)</div>
+        </div>
+
+        <div class="team-box team-local-hair">
+          <div class="team-title">💇‍♀️ 이미용팀</div>
+          <div>(주일은 이미용 없음)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========================= -->
+<!-- 스크립트 전체 -->
+<!-- ========================= -->
+<script>
+/* 요일 접힘/펼침 */
+function toggleDay(id, toggleId) {
+  const box = document.getElementById(id);
+  const toggle = document.getElementById(toggleId);
+  const isHidden = box.classList.contains("hidden");
+  box.classList.toggle("hidden");
+  toggle.textContent = isHidden ? "접기 ▲" : "펼치기 ▼";
+}
+
+/* 카테고리 접힘/펼침 */
+function toggleCategory(id, toggleId) {
+  const box = document.getElementById(id);
+  const toggle = document.getElementById(toggleId);
+  const isHidden = box.classList.contains("hidden");
+  box.classList.toggle("hidden");
+  toggle.textContent = isHidden ? "접기 ▲" : "펼치기 ▼";
+}
+
+/* 참석자 접힘/펼침 */
+function toggleAttend(id, toggleId) {
+  const box = document.getElementById(id);
+  const toggle = document.getElementById(toggleId);
+  const isHidden = box.classList.contains("hidden");
+  box.classList.toggle("hidden");
+  toggle.textContent = isHidden ? "접기 ▲" : "펼치기 ▼";
+}
+
+/* ===========================
+   검색 기능 (자동 펼침 포함)
+=========================== */
+document.getElementById("searchBox").addEventListener("input", function () {
+  const keyword = this.value.trim();
+
+  const daySections = document.querySelectorAll(".day-card");
+  const categorySections = document.querySelectorAll(".category-box");
+  const teamSections = document.querySelectorAll(".team-box");
+  const attendSections = document.querySelectorAll(".attend-box");
+
+  if (keyword === "") {
+    daySections.forEach(d => d.style.display = "block");
+    categorySections.forEach(c => c.style.display = "block");
+    teamSections.forEach(t => t.style.display = "block");
+    attendSections.forEach(a => a.style.display = "block");
+    return;
+  }
+
+  /* 검색 시 자동 펼침 */
+  document.querySelectorAll(".hidden").forEach(h => h.classList.remove("hidden"));
+
+  /* 참석자 명단 검색 */
+  attendSections.forEach(a => {
+    const text = a.innerText;
+    a.style.display = text.includes(keyword) ? "block" : "none";
+  });
+
+  /* 팀명단 검색 */
+  teamSections.forEach(t => {
+    const text = t.innerText;
+    t.style.display = text.includes(keyword) ? "block" : "none";
+  });
+
+  /* 카테고리 검색 */
+  categorySections.forEach(c => {
+    const text = c.innerText;
+    c.style.display = text.includes(keyword) ? "block" : "none";
+  });
+
+  /* 요일 전체 검색 */
+  daySections.forEach(d => {
+    const text = d.innerText;
+    d.style.display = text.includes(keyword) ? "block" : "none";
+  });
+});
+
+/* ===========================
+   필터 기능
+=========================== */
+function filterCategory(cat) {
+  const allCategories = document.querySelectorAll(".category-box");
+  const buttons = document.querySelectorAll(".filter-buttons button");
+
+  buttons.forEach(btn => btn.classList.remove("active"));
+
+  if (cat === "all") {
+    allCategories.forEach(c => c.style.display = "block");
+    document.getElementById("filter-all").classList.add("active");
+    return;
+  }
+
+  allCategories.forEach(c => {
+    if (c.classList.contains(cat)) {
+      c.style.display = "block";
+    } else {
+      c.style.display = "none";
+    }
+  });
+
+  document.getElementById(`filter-${cat}`).classList.add("active");
+}
+</script>
+
+</body>
+</html>

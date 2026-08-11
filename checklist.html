@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>비전트립 체크리스트</title>
+
+<style>
+  body {
+    font-family: system-ui;
+    background: #f7f7f7;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .section {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+  }
+
+  .item input {
+    margin-right: 10px;
+  }
+
+  .back-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    background: #6c5ce7;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>✔ 비전트립 체크리스트</h1>
+
+<!-- 개인 준비물 -->
+<div class="section">
+  <div class="section-title">🎒 개인 준비물</div>
+
+  <div class="item"><input type="checkbox" id="item1"> 세면도구</div>
+  <div class="item"><input type="checkbox" id="item2"> 수건</div>
+  <div class="item"><input type="checkbox" id="item3"> 여벌 옷</div>
+  <div class="item"><input type="checkbox" id="item4"> 운동화</div>
+  <div class="item"><input type="checkbox" id="item5"> 성경책</div>
+  <div class="item"><input type="checkbox" id="item6"> 필기도구</div>
+  <div class="item"><input type="checkbox" id="item7"> 개인 약품</div>
+  <div class="item"><input type="checkbox" id="item8"> 물놀이 준비물</div>
+</div>
+
+<!-- 팀 사역 체크리스트 -->
+<div class="section">
+  <div class="section-title">🧑‍🤝‍🧑 팀 사역 체크리스트</div>
+
+  <div class="item"><input type="checkbox" id="item9"> 팀별 역할 확인</div>
+  <div class="item"><input type="checkbox" id="item10"> 사역 시간 숙지</div>
+  <div class="item"><input type="checkbox" id="item11"> 멘토링 준비</div>
+  <div class="item"><input type="checkbox" id="item12"> 간식팀 준비물 확인</div>
+  <div class="item"><input type="checkbox" id="item13"> 벽화팀 도구 준비</div>
+  <div class="item"><input type="checkbox" id="item14"> 이미용팀 도구 준비</div>
+</div>
+
+<!-- 현장 체크리스트 -->
+<div class="section">
+  <div class="section-title">📍 현장 체크리스트</div>
+
+  <div class="item"><input type="checkbox" id="item15"> 안전교육 확인</div>
+  <div class="item"><input type="checkbox" id="item16"> 어린이 출석 체크</div>
+  <div class="item"><input type="checkbox" id="item17"> 장비 정리</div>
+  <div class="item"><input type="checkbox" id="item18"> 쓰레기 분리수거</div>
+  <div class="item"><input type="checkbox" id="item19"> 마무리 점검</div>
+</div>
+
+<a class="back-btn" href="index.html">← 메인으로 돌아가기</a>
+
+<!-- Firebase 모듈 방식 -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+  import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDZ2b3oBTMRih8wpQW11hk8z1-BjE1H_LY",
+    authDomain: "chilcheon-trip.firebaseapp.com",
+    databaseURL: "https://chilcheon-trip-default-rtdb.firebaseio.com",
+    projectId: "chilcheon-trip",
+    storageBucket: "chilcheon-trip.firebasestorage.app",
+    messagingSenderId: "382403159926",
+    appId: "1:382403159926:web:b8cfff7e565384d3e87c57"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  const items = document.querySelectorAll("input[type='checkbox']");
+
+  items.forEach(item => {
+    const itemRef = ref(db, "checklist/" + item.id);
+
+    // 서버에서 불러오기
+    onValue(itemRef, snapshot => {
+      const val = snapshot.val();
+      item.checked = val === true;
+    });
+
+    // 서버에 저장하기
+    item.addEventListener("change", () => {
+      set(itemRef, item.checked);
+    });
+  });
+</script>
+
+</body>
+</html>
