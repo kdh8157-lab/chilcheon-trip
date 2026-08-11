@@ -8,78 +8,159 @@
 <style>
   body {
     font-family: system-ui;
-    background: #f7f7f7;
-    padding: 20px;
+    background: #f2f4f8;
+    margin: 0;
+    padding: 0;
   }
 
-  h1 {
+  /* 상단 이미지 배너 */
+  .hero {
+    width: 100%;
+    height: 230px;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60') center/cover no-repeat;
+    position: relative;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
     text-align: center;
-    margin-bottom: 20px;
   }
 
-  .menu-box {
+  .hero-overlay h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  /* 메뉴 카드 */
+  .menu {
+    padding: 25px 20px;
+    display: grid;
+    gap: 18px;
+  }
+
+  .card {
     background: white;
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-
-  .menu-box a {
-    display: block;
+    padding: 22px;
+    border-radius: 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-align: center;
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
     color: #333;
+    transition: 0.25s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  /* 연락처 박스 */
   .contact-box {
     background: #eef1ff;
-    padding: 18px;
-    border-radius: 12px;
-    margin-top: 20px;
+    padding: 22px;
+    border-radius: 18px;
+    margin: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+
+  .contact-box strong {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  /* 하단 */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #777;
   }
 </style>
 </head>
 
 <body>
 
-<h1>2026 칠천도 비전트립</h1>
-
-<div class="menu-box">
-  <a href="vision.html">🌅 칠천도 비전트립 소개</a>
-</div>
-  
-<div class="menu-box">
-  <a href="schedule.html">📅 시간표 확인</a>
+<!-- 상단 이미지 배너 -->
+<div class="hero">
+  <div class="hero-overlay">
+    <h1>2026 칠천도 비전트립</h1>
+    <p>성경학교 · 지역봉사 · 예배 · 교제</p>
+  </div>
 </div>
 
-<div class="menu-box">
-  <a href="ministry.html">🧑‍🤝‍🧑 내 사역 확인하기</a>
-</div>
+<!-- 메뉴 카드 -->
+<div class="menu">
 
-<div class="menu-box">
-  <a href="checklist.html">✔ 체크리스트</a>
-</div>
- 
-  <div class="menu-box">
-  <a href="groups.html">📚 성경학교 조편성표 보기</a>
-</div>
-
-<div class="menu-box">
-  <a href="https://naver.me/FRuFLpWK" target="_blank">
-    📍 성경학교(비전빌리지) 찾아오는 길
+  <a href="vision.html" class="card">
+    <div class="card-icon">🌅</div>
+    <div class="card-title">칠천도 비전트립 소개</div>
   </a>
+
+  <a href="schedule.html" class="card">
+    <div class="card-icon">📅</div>
+    <div class="card-title">시간표 확인</div>
+  </a>
+
+  <a href="ministry.html" class="card">
+    <div class="card-icon">🧑‍🤝‍🧑</div>
+    <div class="card-title">내 사역 확인하기</div>
+  </a>
+
+  <a href="checklist.html" class="card">
+    <div class="card-icon">✔</div>
+    <div class="card-title">체크리스트</div>
+  </a>
+
+  <a href="groups.html" class="card">
+    <div class="card-icon">📚</div>
+    <div class="card-title">성경학교 조편성표</div>
+  </a>
+
+  <a href="https://naver.me/FRuFLpWK" target="_blank" class="card">
+    <div class="card-icon">📍</div>
+    <div class="card-title">성경학교(비전빌리지) 찾아오는 길</div>
+  </a>
+
+  <a href="https://naver.me/FlBmyPog" target="_blank" class="card">
+    <div class="card-icon">📍</div>
+    <div class="card-title">대곡교회(주일예배) 찾아오는 길</div>
+  </a>
+
 </div>
 
-<div class="menu-box">
-  <a href="https://naver.me/FlBmyPog" target="_blank">
-    📍 대곡교회(주일예배) 찾아오는 길
-  </a>
-</div>
-  
+<!-- 연락처 -->
 <div class="contact-box">
-  <strong>비상 연락처</strong><br><br>
+  <strong>비상 연락처</strong>
   담당사역자(지역봉사) : 이소희 010-9484-5226 <br>
   담당사역자(성경학고) : 구 원 010-9555-9158 <br>
   담당사역자(지역봉사) : 박종하 010-4993-5355 <br>
@@ -92,5 +173,11 @@
   성경학교: 홍달님 010-6427-3810 <br>
 </div>
 
+<div class="footer">
+  © 구덕교회 2026 칠천도 비전트립
+</div>
+
 </body>
 </html>
+
+
