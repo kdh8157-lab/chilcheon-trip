@@ -14,34 +14,40 @@
 
   h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+  }
+
+  .day-box {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    overflow: hidden;
+  }
+
+  .day-title {
+    background: #bcd0ff;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 30px;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
   }
 
   th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
     font-size: 0.9rem;
     text-align: center;
   }
 
   th {
-    background: #dfe6ff;
+    background: #e8f0ff;
     font-weight: 700;
-  }
-
-  .day-title {
-    background: #bcd0ff;
-    font-weight: 700;
-    font-size: 1rem;
   }
 
   .back-btn {
@@ -64,67 +70,94 @@
 <h1>📅 칠천도 비전트립 시간표</h1>
 
 <!-- ========================= -->
-<!-- 8월 21일 -->
+<!-- 8월 21일 (금) -->
 <!-- ========================= -->
-<table>
-  <tr><th colspan="4" class="day-title">8월 21일 (금)</th></tr>
-  <tr>
-    <th>시간</th>
-    <th>내용</th>
-    <th>장소</th>
-    <th>비고</th>
-  </tr>
+<div class="day-box">
+  <div class="day-title">8월 21일 (금)</div>
+  <table>
+    <tr>
+      <th>시간</th>
+      <th>성경학교팀</th>
+      <th>지역봉사팀</th>
+      <th>비고</th>
+    </tr>
 
-  <tr><td>07:00</td><td>교회 집합</td><td>본당</td><td></td></tr>
-  <tr><td>07:30</td><td>출발</td><td>버스</td><td></td></tr>
-  <tr><td>10:00</td><td>칠천도 도착</td><td>칠천도교회</td><td></td></tr>
-  <tr><td>10:30</td><td>예배</td><td>본당</td><td></td></tr>
-  <tr><td>11:00</td><td>성경학교</td><td>교육관</td><td>멘토팀</td></tr>
-  <tr><td>12:00</td><td>점심식사</td><td>식당</td><td></td></tr>
-  <tr><td>13:00</td><td>지역봉사</td><td>마을</td><td>벽화/이미용</td></tr>
-  <tr><td>17:00</td><td>정리</td><td>전체</td><td></td></tr>
-</table>
+    <tr><td>07:00</td><td>교회집합&물품정리</td><td>교회집합&물품정리</td><td>자차팀개별출발</td></tr>
+    <tr><td>07:30</td><td>버스출발 7:30</td><td>버스출발 7:30</td><td>자차 9:00까지도착!</td></tr>
+    <tr><td>09:00</td><td>대곡교회 도착 경건회양육팀모임</td><td>대곡교회 도착 경건회양육팀모임</td><td>성경학교사전준비팀 경건회x 비전빌리지이동</td></tr>
+    <tr><td>09:30</td><td>어린이팀 비전빌리지이동</td><td>지역봉사팀 사역준비</td><td></td></tr>
+    <tr><td>10:00</td><td>성경학교준비 및 웰컴</td><td>벽화&이미용사역</td><td></td></tr>
+    <tr><td>10:30</td><td>예배(찬양&말씀)</td><td>벽화&이미용사역</td><td></td></tr>
+    <tr><td>11:30</td><td>조별모임(나를소개해요)</td><td>벽화&이미용사역</td><td></td></tr>
+    <tr><td>12:00</td><td>만들기1</td><td>지역봉사팀 점심시간(소정식당)</td><td></td></tr>
+    <tr><td>12:30</td><td>점심시간 & 조별사진찍기</td><td>지역봉사팀 점심시간(소정식당)</td><td></td></tr>
+    <tr><td>13:00</td><td>점심시간 & 조별사진찍기</td><td>벽화&이미용사역</td><td></td></tr>
+    <tr><td>13:30</td><td>레크레이션</td><td>벽화&이미용사역</td><td></td></tr>
+    <tr><td>14:30</td><td>성경학교 코너 프로그램</td><td>벽화&이미용사역</td><td></td></tr>
+    <tr><td>15:30</td><td>찬양&기도</td><td>벽화&이미용사역</td><td></td></tr>
+    <tr><td>16:00</td><td>대곡교회로 이동</td><td>나눔 기도회</td><td></td></tr>
+    <tr><td>16:30</td><td>정리</td><td>정리</td><td></td></tr>
+    <tr><td>17:00</td><td>구덕교회로 버스출발</td><td>귀가</td><td></td></tr>
 
-<!-- ========================= -->
-<!-- 8월 22일 -->
-<!-- ========================= -->
-<table>
-  <tr><th colspan="4" class="day-title">8월 22일 (토)</th></tr>
-  <tr>
-    <th>시간</th>
-    <th>내용</th>
-    <th>장소</th>
-    <th>비고</th>
-  </tr>
-
-  <tr><td>07:00</td><td>아침식사</td><td>식당</td><td></td></tr>
-  <tr><td>08:00</td><td>성경학교</td><td>교육관</td><td>전체</td></tr>
-  <tr><td>10:00</td><td>물놀이</td><td>해변</td><td>안전팀</td></tr>
-  <tr><td>12:00</td><td>점심식사</td><td>식당</td><td></td></tr>
-  <tr><td>13:00</td><td>지역봉사</td><td>마을</td><td>벽화/이미용</td></tr>
-  <tr><td>17:00</td><td>정리</td><td>전체</td><td></td></tr>
-</table>
+  </table>
+</div>
 
 <!-- ========================= -->
-<!-- 8월 23일 -->
+<!-- 8월 22일 (토) -->
 <!-- ========================= -->
-<table>
-  <tr><th colspan="4" class="day-title">8월 23일 (주일)</th></tr>
-  <tr>
-    <th>시간</th>
-    <th>내용</th>
-    <th>장소</th>
-    <th>비고</th>
-  </tr>
+<div class="day-box">
+  <div class="day-title">8월 22일 (토)</div>
+  <table>
+    <tr>
+      <th>시간</th>
+      <th>성경학교팀</th>
+      <th>지역봉사팀</th>
+      <th>비고</th>
+    </tr>
 
-  <tr><td>07:00</td><td>아침식사</td><td>식당</td><td></td></tr>
-  <tr><td>09:00</td><td>주일예배</td><td>본당</td><td></td></tr>
-  <tr><td>11:00</td><td>교제</td><td>본당</td><td></td></tr>
-  <tr><td>12:00</td><td>점심식사</td><td>식당</td><td></td></tr>
-  <tr><td>13:00</td><td>정리</td><td>전체</td><td></td></tr>
-  <tr><td>14:00</td><td>출발</td><td>버스</td><td></td></tr>
-  <tr><td>17:00</td><td>교회 도착</td><td>본당</td><td></td></tr>
-</table>
+    <tr><td>07:00</td><td>교회집합&물품정리</td><td>교회집합&물품정리</td><td>자차팀개별출발</td></tr>
+    <tr><td>07:30</td><td>버스출발 7:30</td><td>버스출발 7:30</td><td>자차 9:00까지도착!</td></tr>
+    <tr><td>09:00</td><td>대곡교회 도착 경건회양육팀모임</td><td>대곡교회 도착 경건회양육팀모임</td><td>단체사진촬영</td></tr>
+    <tr><td>09:30</td><td>어린이팀 비전빌리지이동</td><td>지역봉사팀 사역준비</td><td></td></tr>
+    <tr><td>10:00</td><td>웰컴 및 자리안내</td><td>벽화사역 with중등부</td><td></td></tr>
+    <tr><td>10:30</td><td>예배(찬양&말씀)</td><td>벽화사역 with중등부</td><td></td></tr>
+    <tr><td>11:30</td><td>만들기2</td><td>벽화사역 with중등부</td><td></td></tr>
+    <tr><td>12:00</td><td>점심시간</td><td>벽화사역 with중등부</td><td></td></tr>
+    <tr><td>12:30</td><td>점심시간</td><td>지역봉사팀 점심시간(소정식당)</td><td>마을회관식사대접벽화사역 with중등부</td></tr>
+    <tr><td>13:00</td><td>레크레이션</td><td>지역봉사팀 점심시간(소정식당)</td><td>마을회관식사대접벽화사역 with중등부</td></tr>
+</td></tr>
+    <tr><td>13:30</td><td>수영환복/체조</td><td>벽화사역 </td><td></td></tr>
+    <tr><td>14:00</td><td>물놀이 및 간식</td><td>벽화사역 </td><td></td></tr>
+    <tr><td>15:30</td><td>물놀이 및 간식</td><td>벽화사역 </td><td></td></tr>
+    <tr><td>16:00</td><td>정리 및 환복 어린이귀가</td><td>예배당 마당청소</td><td></td></tr>
+    <tr><td>16:30</td><td>대곡교회로 이동</td><td>나눔기도회</td><td></td></tr>
+    <tr><td>17:00</td><td>구덕교회로 버스출발</td><td>귀가</td><td></td></tr>
+
+  </table>
+</div>
+
+<!-- ========================= -->
+<!-- 8월 23일 (주일) -->
+<!-- ========================= -->
+<div class="day-box">
+  <div class="day-title">8월 23일 (주일)</div>
+  <table>
+    <tr>
+      <th>시간</th>
+      <th>내용</th>
+      <th>장소</th>
+      <th>비고</th>
+    </tr>
+
+    <tr><td>08:00</td><td>구덕교회출발 8:00</td><td>구덕교회</td><td>자차 9:30분까지 대곡교회 도착</td></tr>
+    <tr><td>09:00</td><td>대곡교회 도착 양육팀모임 및 의자정리</td><td>대곡교회</td><td></td></tr>
+    <tr><td>10:30</td><td>주일예배</td><td>대곡교회</td><td>찬양-어린이팀, 기도-한학수장로님, 특순-스티커</td></tr>
+    <tr><td>12:00</td><td>점심식사(대곡교회성도님 귀가)</td><td>대곡교회</td><td></td></tr>
+    <tr><td>13:00</td><td>전체나눔 및 기도회</td><td>대곡교회</td><td></td></tr>
+    <tr><td>14:00</td><td>청소</td><td>대곡교회</td><td></td></tr>
+    <tr><td>15:00</td><td>귀가</td><td>본당</td><td></td></tr>
+  </table>
+</div>
 
 <a class="back-btn" href="index.html">← 메인으로 돌아가기</a>
 
