@@ -41,11 +41,14 @@
 
   .search-box {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 16px;
     font-size: 1.1rem;
     border-radius: 10px;
     border: 1px solid #ccc;
     margin-bottom: 18px;
+    display: block;
   }
 
   pre {
@@ -61,6 +64,8 @@
   .back-btn {
     display: block;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     text-align: center;
     padding: 16px;
     background: #6c5ce7;
@@ -72,44 +77,15 @@
     font-size: 1.1rem;
   }
 
-  /* 모바일 최적화 */
   @media (max-width: 600px) {
-    body {
-      font-size: 20px;
-      padding: 16px;
-    }
-
-    h1 {
-      font-size: 30px;
-    }
-
-    .card {
-      padding: 22px;
-    }
-
-    .card-title {
-      font-size: 1.35rem;
-    }
-
-    .card-content {
-      font-size: 1.15rem;
-      line-height: 1.8;
-    }
-
-    .search-box {
-      font-size: 1.25rem;
-      padding: 20px;
-    }
-
-    pre {
-      font-size: 1.2rem;
-      padding: 22px;
-    }
-
-    .back-btn {
-      font-size: 1.25rem;
-      padding: 20px;
-    }
+    body { font-size: 20px; padding: 16px; }
+    h1 { font-size: 30px; }
+    .card { padding: 22px; }
+    .card-title { font-size: 1.35rem; }
+    .card-content { font-size: 1.15rem; line-height: 1.8; }
+    .search-box { font-size: 1.25rem; padding: 20px; }
+    pre { font-size: 1.2rem; padding: 22px; }
+    .back-btn { font-size: 1.25rem; padding: 20px; }
   }
 </style>
 
@@ -117,7 +93,6 @@
   function searchTeams() {
     const keyword = document.getElementById("searchBox").value.toLowerCase();
     const items = document.querySelectorAll("li");
-
     items.forEach(li => {
       const text = li.innerText.toLowerCase();
       li.style.display = text.includes(keyword) ? "" : "none";
@@ -182,9 +157,8 @@
 </div>
 
 <div class="card">
-  <div class="card-title">📖 Q.T 본문 (직접 붙여넣기)</div>
-  <pre>
-15   이스라엘 족속이 그릇 행하여 나를 떠날 때에 사독의 자손 레위 사람 제사장들은 내 성소의 직분을 지켰은즉 그들은 내게 가까이 나아와 수종을 들되 내 앞에 서서 기름과 피를 내게 드릴지니라 주 여호와의 말씀이니라
+  <div class="card-title">📖 Q.T 본문 에스갤 44장 15절~31절</div>
+  <pre>15   이스라엘 족속이 그릇 행하여 나를 떠날 때에 사독의 자손 레위 사람 제사장들은 내 성소의 직분을 지켰은즉 그들은 내게 가까이 나아와 수종을 들되 내 앞에 서서 기름과 피를 내게 드릴지니라 주 여호와의 말씀이니라
 16   그들이 내 성소에 들어오며 또 내 상에 가까이 나아와 내게 수종들어 내가 맡긴 직분을 지키되
 17   그들이 안뜰 문에 들어올 때에나 안뜰 문과 성전 안에서 수종들 때에는 양털 옷을 입지 말고 가는 베 옷을 입을 것이니
 18   가는 베 관을 머리에 쓰며 가는 베 바지를 입고 땀이 나게 하는 것으로 허리를 동이지 말 것이며
@@ -200,8 +174,7 @@
 28   그들에게는 기업이 있으리니 내가 곧 그 기업이라 너희는 이스라엘 가운데에서 그들에게 산업을 주지 말라 내가 그 산업이 됨이라
 29   그들은 소제와 속죄제와 속건제의 제물을 먹을지니 이스라엘 중에서 구별하여 드리는 물건을 다 그들에게 돌리며
 30   또 각종 처음 익은 열매와 너희 모든 예물 중에 각종 거제 제물을 다 제사장에게 돌리고 너희가 또 첫 밀가루를 제사장에게 주어 그들에게 네 집에 복이 내리도록 하게 하라
-31   새나 가축이 저절로 죽은 것이나 찢겨서 죽은 것은 다 제사장이 먹지 말 것이니라
-  </pre>
+31   새나 가축이 저절로 죽은 것이나 찢겨서 죽은 것은 다 제사장이 먹지 말 것이니라</pre>
 </div>
 
 <div class="card">
