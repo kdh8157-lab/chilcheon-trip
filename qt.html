@@ -35,12 +35,15 @@
     margin-bottom: 12px;
   }
 
+  /* 버튼 오버 문제 완전 해결 */
   .btn {
     display: block;
     width: 100%;
-    padding: 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 18px;
     margin: 12px 0;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     border-radius: 10px;
     text-decoration: none;
@@ -60,29 +63,11 @@
     color: #636e72;
   }
 
-  /* 모바일 최적화 */
   @media (max-width: 600px) {
-    body {
-      font-size: 20px;
-      padding: 16px;
-    }
-
-    h1 {
-      font-size: 30px;
-    }
-
-    .card {
-      padding: 22px;
-    }
-
-    .card-title {
-      font-size: 1.35rem;
-    }
-
-    .btn {
-      font-size: 1.25rem;
-      padding: 20px;
-    }
+    body { font-size: 20px; padding: 16px; }
+    h1 { font-size: 30px; }
+    .card { padding: 22px; }
+    .btn { font-size: 1.35rem; padding: 22px; }
   }
 </style>
 </head>
@@ -98,9 +83,7 @@
   <a class="btn" href="saturday_qt.html">토요일 (22일)</a>
 </div>
 
-<footer>
-  칠천사역 QT 안내 페이지
-</footer>
+<footer>칠천사역 QT 안내 페이지</footer>
 
 </body>
 </html>
