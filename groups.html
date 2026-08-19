@@ -17,6 +17,16 @@
     margin-bottom: 15px;
   }
 
+  /* 검색창 */
+  #searchBox {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 18px;
+    font-size: 1rem;
+  }
+
   /* 안내 박스 */
   .info-box {
     background: #ffffff;
@@ -104,6 +114,8 @@
 
 <h1>📚 성경학교 조편성표</h1>
 
+<input id="searchBox" type="text" placeholder="이름 검색…" onkeyup="searchGroup()">
+
 <!-- 요일별 색상 규칙 안내 -->
 <div class="info-box">
   <strong>📅 요일별 색상 규칙(파란색조는 토요일만)</strong><br><br>
@@ -119,7 +131,6 @@
 <script>
   const groupIcons = ["🐳","🐬","🐢","🐟","🐙","🦀","🐠","🐡","🦑","🐋","🌊"];
 
-  /* 1~7조 기존 색상, 8~11조 파란색 */
   const groupColors = [
     "#6c5ce7", "#f39c12", "#00b894", "#fdcb6e", "#e17055",
     "#d63031", "#3498db",
@@ -127,11 +138,12 @@
   ];
 
   function dayColor(day) {
-    if (day === "sat") return "#3498db";   // 파란색
-    if (day === "fri") return "#2ecc71";   // 초록색
-    return "#bdc3c7";                      // 기본
+    if (day === "sat") return "#3498db";
+    if (day === "fri") return "#2ecc71";
+    return "#bdc3c7";
   }
 
+  /* === 기존 groupsData 그대로 사용 === */
   const groupsData = [
     {
       group: "1조",
@@ -295,71 +307,99 @@
         ["김율","5세","구덕","sat"],
         ["장가을","4세","구덕","sat"]
       ]
-      
     }
   ];
 
-  const container = document.getElementById("groups");
+  /* ============================
+     렌더링 함수
+  ============================ */
+  function renderGroups(data) {
+    const container = document.getElementById("groups");
+    container.innerHTML = "";
 
-  groupsData.forEach((g, i) => {
-    const box = document.createElement("div");
-    box.className = "group-box";
+    data.forEach((g, i) => {
+      const box = document.createElement("div");
+      box.className = "group-box";
 
-    const header = document.createElement("div");
-    header.className = "group-header";
-    header.style.background = groupColors[i];
-    header.textContent = `${groupIcons[i]} ${g.group}`;
+      const header = document.createElement("div");
+      header.className = "group-header";
+      header.style.background = groupColors[i];
+      header.textContent = `${groupIcons[i]} ${g.group}`;
 
-    const content = document.createElement("div");
-    content.className = "group-content";
+      const content = document.createElement("div");
+      content.className = "group-content";
 
-    /* 조장 표시 */
-    const leaderList = document.createElement("div");
-    leaderList.className = "leader-list";
+      /* 조장 */
+      const leaderList = document.createElement("div");
+      leaderList.className = "leader-list";
 
-    g.leader.forEach(l => {
-      const leaderItem = document.createElement("div");
-      leaderItem.className = "leader-item";
+      g.leader.forEach(l => {
+        const leaderItem = document.createElement("div");
+        leaderItem.className = "leader-item";
 
-      const dayDot = document.createElement("span");
-      dayDot.className = "dot";
-      dayDot.style.background = dayColor(l[1]);
+        const dayDot = document.createElement("span");
+        dayDot.className = "dot";
+        dayDot.style.background = dayColor(l[1]);
 
-      const name = document.createElement("span");
-      name.textContent = `${l[0]} (조장)`;
+        const name = document.createElement("span");
+        name.textContent = `${l[0]} (조장)`;
 
-      leaderItem.appendChild(dayDot);
-      leaderItem.appendChild(name);
-      leaderList.appendChild(leaderItem);
+        leaderItem.appendChild(dayDot);
+        leaderItem.appendChild(name);
+        leaderList.appendChild(leaderItem);
+      });
+
+      content.appendChild(leaderList);
+
+      /* 학생 */
+      const list = document.createElement("div");
+      list.className = "student-list";
+
+      g.students.forEach(s => {
+        const item = document.createElement("div");
+        item.className = "student-item";
+
+        const dayDot = document.createElement("span");
+        dayDot.className = "dot";
+        dayDot.style.background = dayColor(s[3]);
+
+        const text = document.createElement("span");
+        text.textContent = `${s[0]} (${s[1]}, ${s[2]})`;
+
+        item.appendChild(dayDot);
+        item.appendChild(text);
+        list.appendChild(item);
+      });
+
+      content.appendChild(list);
+      box.appendChild(header);
+      box.appendChild(content);
+      container.appendChild(box);
+    });
+  }
+
+  /* ============================
+     검색 기능
+  ============================ */
+  function searchGroup() {
+    const keyword = document.getElementById("searchBox").value.trim();
+
+    if (keyword === "") {
+      renderGroups(groupsData);
+      return;
+    }
+
+    const matched = groupsData.filter(g => {
+      const leaderMatch = g.leader.some(l => l[0].includes(keyword));
+      const studentMatch = g.students.some(s => s[0].includes(keyword));
+      return leaderMatch || studentMatch;
     });
 
-    content.appendChild(leaderList);
+    renderGroups(matched);
+  }
 
-    /* 학생 표시 */
-    const list = document.createElement("div");
-    list.className = "student-list";
-
-    g.students.forEach(s => {
-      const item = document.createElement("div");
-      item.className = "student-item";
-
-      const dayDot = document.createElement("span");
-      dayDot.className = "dot";
-      dayDot.style.background = dayColor(s[3]);
-
-      const text = document.createElement("span");
-      text.textContent = `${s[0]} (${s[1]}, ${s[2]})`;
-
-      item.appendChild(dayDot);
-      item.appendChild(text);
-      list.appendChild(item);
-    });
-
-    content.appendChild(list);
-    box.appendChild(header);
-    box.appendChild(content);
-    container.appendChild(box);
-  });
+  /* 첫 렌더링 */
+  renderGroups(groupsData);
 </script>
 
 </body>
