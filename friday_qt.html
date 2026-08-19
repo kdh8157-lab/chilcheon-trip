@@ -91,14 +91,34 @@
 </style>
 
 <script>
-  function searchTeams() {
-    const keyword = document.getElementById("searchBox").value.toLowerCase();
-    const items = document.querySelectorAll("li");
-    items.forEach(li => {
-      const text = li.innerText.toLowerCase();
-      li.style.display = text.includes(keyword) ? "" : "none";
-    });
+function searchTeams() {
+  const keyword = document.getElementById("searchBox").value.trim().toLowerCase();
+  const items = document.querySelectorAll("li");
+
+  // 검색어가 없으면 전체 조 다시 표시
+  if (keyword === "") {
+    items.forEach(li => li.style.display = "");
+    return;
   }
+
+  // 검색어가 포함된 조를 찾기
+  let matchedGroup = null;
+
+  items.forEach(li => {
+    const text = li.innerText.toLowerCase();
+    if (text.includes(keyword)) {
+      matchedGroup = li;   // 해당 이름이 포함된 조 저장
+    }
+  });
+
+  // 모든 조 숨기기
+  items.forEach(li => li.style.display = "none");
+
+  // 해당 이름이 속한 조만 보이기
+  if (matchedGroup) {
+    matchedGroup.style.display = "";
+  }
+}
 </script>
 </head>
 
