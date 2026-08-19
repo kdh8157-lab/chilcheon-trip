@@ -1,219 +1,183 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>금요일 양육조 & Q.T</title>
-  <style>
-    body {
-      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: #f5f6fa;
-      margin: 0;
-      padding: 0;
-      color: #2d3436;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>금요일 큐티 & 양육조</title>
 
-    header {
-      background: linear-gradient(135deg, #2c3e50, #4b6584);
-      color: #fff;
-      padding: 28px 30px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    header p {
-      margin: 8px 0 0;
-      font-size: 15px;
-      opacity: 0.9;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px 40px;
-    }
-
-    /* 검색창 */
-    #searchBox {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 25px;
-      border-radius: 10px;
-      border: 1px solid #dcdde1;
-      font-size: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    /* 카드 디자인 */
-    section {
-      background-color: #ffffff;
-      border-radius: 14px;
-      padding: 25px 25px 20px;
-      margin-bottom: 25px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-    }
-
-    section h2 {
-      margin-top: 0;
-      font-size: 20px;
-      font-weight: 700;
-      color: #2c3e50;
-      border-bottom: 2px solid #ecf0f1;
-      padding-bottom: 10px;
-    }
-
-    h3 {
-      font-size: 16px;
-      margin: 18px 0 10px;
-      font-weight: 600;
-      color: #34495e;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    li {
-      margin-bottom: 6px;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .team-label {
-      font-weight: 700;
-      color: #2c3e50;
-      margin-right: 6px;
-    }
-
-    /* Q.T 본문 박스 */
-    pre {
-      white-space: pre-wrap;
-      background: #f1f2f6;
-      padding: 18px;
-      border-radius: 10px;
-      font-size: 15px;
-      line-height: 1.7;
-      border: 1px solid #dcdde1;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 13px;
-      color: #95a5a6;
-      padding: 20px 0;
-    }
-    /* 모바일에서 글자 크게 보이도록 조정 */
-@media (max-width: 600px) {
+<style>
   body {
+    font-family: system-ui;
+    background: #f7f7f7;
+    padding: 20px;
     font-size: 18px;
   }
 
-  header h1 {
-    font-size: 24px;
+  h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 700;
   }
 
-  header p {
-    font-size: 16px;
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
 
-  section h2 {
-    font-size: 20px;
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
   }
 
-  h3 {
-    font-size: 18px;
+  .card-content {
+    font-size: 1.05rem;
+    line-height: 1.7;
   }
 
-  li {
-    font-size: 17px;
-    line-height: 1.6;
-  }
-
-  #searchBox {
-    font-size: 18px;
+  .search-box {
+    width: 100%;
     padding: 16px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 18px;
   }
 
   pre {
-    font-size: 17px;
+    white-space: pre-wrap;
+    background: #f1f2f6;
     padding: 20px;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    border: 1px solid #dcdde1;
   }
 
-  .btn {
-    font-size: 20px;
-    padding: 20px;
+  .back-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    background: #6c5ce7;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    font-size: 1.1rem;
   }
-}
-  </style>
 
-  <script>
-    function searchTeams() {
-      const keyword = document.getElementById("searchBox").value.toLowerCase();
-      const items = document.querySelectorAll("li");
-
-      items.forEach(li => {
-        const text = li.innerText.toLowerCase();
-        li.style.display = text.includes(keyword) ? "" : "none";
-      });
+  /* 모바일 최적화 */
+  @media (max-width: 600px) {
+    body {
+      font-size: 20px;
+      padding: 16px;
     }
-  </script>
+
+    h1 {
+      font-size: 30px;
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+    }
+
+    .card-content {
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+
+    .search-box {
+      font-size: 1.25rem;
+      padding: 20px;
+    }
+
+    pre {
+      font-size: 1.2rem;
+      padding: 22px;
+    }
+
+    .back-btn {
+      font-size: 1.25rem;
+      padding: 20px;
+    }
+  }
+</style>
+
+<script>
+  function searchTeams() {
+    const keyword = document.getElementById("searchBox").value.toLowerCase();
+    const items = document.querySelectorAll("li");
+
+    items.forEach(li => {
+      const text = li.innerText.toLowerCase();
+      li.style.display = text.includes(keyword) ? "" : "none";
+    });
+  }
+</script>
 </head>
 
 <body>
-  <header>
-    <h1>금요일 양육조 & Q.T</h1>
-    <p>양육팀 구성 · Q.T 본문 · 묵상 질문</p>
-  </header>
 
-  <main>
-    <input id="searchBox" type="text" placeholder="이름 또는 조 검색…" onkeyup="searchTeams()">
+<h1>금요일 큐티 & 양육조</h1>
 
-    <!-- 금요일 양육조 -->
-    <section>
-      <h2>금요일 양육조</h2>
+<div class="card">
+  <div class="card-title">🔍 이름 검색</div>
+  <input id="searchBox" class="search-box" type="text" placeholder="이름 또는 조 검색…" onkeyup="searchTeams()">
+</div>
 
-      <h3>어린이사역팀</h3>
-      <ul>
-        <li><span class="team-label">1조</span>박희덕, 김효선, 김다은, 정하은</li>
-        <li><span class="team-label">2조</span>홍달님, 김수겸, 이주현, 허자윤</li>
-        <li><span class="team-label">3조</span>김정태, 이보배, 이홍은, 이은혜, 이수연</li>
-        <li><span class="team-label">4조</span>한학수, 김재현a, 김재현, 심성섭, 이황인</li>
-      </ul>
+<div class="card">
+  <div class="card-title">📌 어린이사역팀</div>
+  <div class="card-content">
+    <ul>
+      <li>1조 – 박희덕, 김효선, 김다은, 정하은</li>
+      <li>2조 – 홍달님, 김수겸, 이주현, 허자윤</li>
+      <li>3조 – 김정태, 이보배, 이홍은, 이은혜, 이수연</li>
+      <li>4조 – 한학수, 김재현a, 김재현, 심성섭, 이황인</li>
+    </ul>
+  </div>
+</div>
 
-      <h3>어린이팀</h3>
-      <ul>
-        <li><span class="team-label">어린이팀</span>
-          구원, 김늘찬, 김도연, 김리주, 김열매, 김유라, 송예담, 양다은, 오민하, 오현우,
-          이나은, 이가빈, 이예빈, 오하준, 오하율, 이조이, 진세준, 진하은
-        </li>
-      </ul>
+<div class="card">
+  <div class="card-title">👧 어린이팀</div>
+  <div class="card-content">
+    구원, 김늘찬, 김도연, 김리주, 김열매, 김유라, 송예담, 양다은, 오민하, 오현우,
+    이나은, 이가빈, 이예빈, 오하준, 오하율, 이조이, 진세준, 진하은
+  </div>
+</div>
 
-      <h3>운영팀</h3>
-      <ul>
-        <li><span class="team-label">1조</span>김건욱, 이신화, 김대현, 모상규</li>
-      </ul>
+<div class="card">
+  <div class="card-title">⚙ 운영팀</div>
+  <div class="card-content">
+    1조 – 김건욱, 이신화, 김대현, 모상규
+  </div>
+</div>
 
-      <h3>지역봉사팀</h3>
-      <ul>
-        <li><span class="team-label">1조</span>김정은, 이하은, 한사랑, 허명자, 노건희</li>
-        <li><span class="team-label">2조</span>노영란, 강찬미, 이정엽, 신선한, 윤지수</li>
-        <li><span class="team-label">3조</span>박경덕, 고신명, 임승진, 이재원, 최철준, 탁경배</li>
-        <li><span class="team-label">4조</span>김필신, 남은지, 김용해, 김수영, 유종숙</li>
-        <li><span class="team-label">5조</span>신향래, 유은실, 이슬기, 박선화</li>
-      </ul>
-    </section>
+<div class="card">
+  <div class="card-title">🤝 지역봉사팀</div>
+  <div class="card-content">
+    <ul>
+      <li>1조 – 김정은, 이하은, 한사랑, 허명자, 노건희</li>
+      <li>2조 – 노영란, 강찬미, 이정엽, 신선한, 윤지수</li>
+      <li>3조 – 박경덕, 고신명, 임승진, 이재원, 최철준, 탁경배</li>
+      <li>4조 – 김필신, 남은지, 김용해, 김수영, 유종숙</li>
+      <li>5조 – 신향래, 유은실, 이슬기, 박선화</li>
+    </ul>
+  </div>
+</div>
 
-    <!-- Q.T 본문 -->
-    <section>
-      <h2>Q.T 본문 – 에스겔 44장 1~14절</h2>
-
-      <pre>
+<div class="card">
+  <div class="card-title">📖 Q.T 본문 (직접 붙여넣기)</div>
+  <pre>
 1   그가 나를 데리고 성소의 동쪽을 향한 바깥 문에 돌아오시니 그 문이 닫혔더라
 2   여호와께서 내게 이르시되 이 문은 닫고 다시 열지 못할지니 아무도 그리로 들어오지 못할 것은 이스라엘 하나님 나 여호와가 그리로 들어왔음이라 그러므로 닫아 둘지니라
 3   왕은 왕인 까닭에 안 길로 이 문 현관으로 들어와서 거기에 앉아서 나 여호와 앞에서 음식을 먹고 그 길로 나갈 것이니라
@@ -228,23 +192,18 @@
 12   그들이 전에 백성을 위하여 그 우상 앞에서 수종들어 이스라엘 족속이 죄악에 걸려 넘어지게 하였으므로 내가 내 손을 들어 쳐서 그들이 그 죄악을 담당하였느니라 주 여호와의 말씀이니라
 13   그들이 내게 가까이 나아와 제사장의 직분을 행하지 못하며 또 내 성물 곧 지성물에 가까이 오지 못하리니 그들이 자기의 수치와 그 행한 바 가증한 일을 담당하리라
 14   그러나 내가 그들을 세워 성전을 지키게 하고 성전에 모든 수종드는 일과 그 가운데에서 행하는 모든 일을 맡기리라
-      </pre>
-    </section>
+  </pre>
+</div>
 
-    <!-- Q.T 질문 -->
-    <section>
-      <h2>Q.T 묵상 질문</h2>
+<div class="card">
+  <div class="card-title">🙏 묵상 질문</div>
+  <div class="card-content">
+    • 하나님은 어떤 분이신가요?<br><br>
+    • 내가 드려야 할 응답과 순종은 무엇인가요?
+  </div>
+</div>
 
-      <ul>
-        <li><strong>1. 하나님은 어떤 분이신가요?</strong></li>
-        <li style="margin-top:14px;"><strong>2. 내가 드려야 할 응답과 순종은 무엇인가요?</strong></li>
-      </ul>
-    </section>
+<a class="back-btn" href="index.html">← 메인으로 돌아가기</a>
 
-  </main>
-
-  <footer>
-    금요일 양육조 & Q.T 페이지 · 마지막 업데이트: 2026-08-19
-  </footer>
 </body>
 </html>
